@@ -4,7 +4,7 @@ import {
   Check,
   ChevronLeft,
   ChevronRight,
-  Command,
+  TerminalSquare,
   CreditCard,
   File,
   FileText,
@@ -23,19 +23,19 @@ import {
   Twitter,
   User,
   X,
+  Share,
   type Icon as LucideIcon,
 } from "lucide-react"
 
 export type Icon = LucideIcon
 
 export const Icons = {
-  logo: Command,
+  logo: TerminalSquare,
   close: X,
   spinner: Loader2,
   chevronLeft: ChevronLeft,
   chevronRight: ChevronRight,
   trash: Trash,
-  post: FileText,
   page: File,
   media: Image,
   settings: Settings,
@@ -50,6 +50,7 @@ export const Icons = {
   sun: SunMedium,
   moon: Moon,
   laptop: Laptop,
+  share: Share,
   gitHub: ({ ...props }: LucideProps) => (
     <svg
       aria-hidden="true"
