@@ -7,7 +7,6 @@ import {
   TerminalSquare,
   CreditCard,
   File,
-  FileText,
   HelpCircle,
   Image,
   Laptop,

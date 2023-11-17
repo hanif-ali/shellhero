@@ -59,7 +59,7 @@ export default async function IndexPage() {
           </div>
           <div className="relative overflow-hidden rounded-lg border bg-background p-2">
             <div className="flex h-[180px] flex-col justify-between rounded-md p-6">
-              <Icons.moon className="w-12 h-12" />
+              <Icons.moon className="h-12 w-12" />
               <div className="space-y-2">
                 <h3 className="font-bold">Practice</h3>
                 <p className="text-sm text-muted-foreground">
@@ -70,7 +70,7 @@ export default async function IndexPage() {
           </div>
           <div className="relative overflow-hidden rounded-lg border bg-background p-2">
             <div className="flex h-[180px] flex-col justify-between rounded-md p-6">
-              <Icons.share className="w-12 h-12" />
+              <Icons.share className="h-12 w-12" />
               <div className="space-y-2">
                 <h3 className="font-bold">Share</h3>
                 <p className="text-sm text-muted-foreground">
