@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation"
 
-import { dashboardConfig } from "@/config/dashboard"
+import { platformConfig } from "@/config/platform"
 import { getCurrentUser } from "@/lib/session"
 import { MainNav } from "@/components/main-nav"
 import { UserAccountNav } from "@/components/user-account-nav"
@@ -22,7 +22,7 @@ export default async function DashboardLayout({
     <div className="flex min-h-screen flex-col space-y-6">
       <header className="sticky top-0 z-40 border-b bg-background">
         <div className="container flex h-16 items-center justify-between py-4">
-          <MainNav items={dashboardConfig.mainNav} />
+          <MainNav items={platformConfig.mainNav} />
           <UserAccountNav
             user={{
               name: user.name,
@@ -32,10 +32,16 @@ export default async function DashboardLayout({
           />
         </div>
       </header>
-      <div className="container grid flex-1 gap-12 md:grid-cols-[200px_1fr]">
-        <aside className="hidden w-[200px] flex-col md:flex">
+      <div className="container grid flex-1 gap-12">
+        {children}
+      </div>
+    </div>
+  )
+}
+
+        {/* <aside className="hidden w-[200px] flex-col md:flex">
           <nav className="grid items-start gap-2">
-            {/* <Link href="#">
+            <Link href="#">
               <span
                 className={cn(
                   "group flex items-center rounded-md px-3 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground",
@@ -46,13 +52,9 @@ export default async function DashboardLayout({
                 <Icon className="mr-2 h-4 w-4" />
                 <span>Lesson 1</span>
               </span>
-            </Link> */}
+            </Link>
           </nav>
         </aside>
         <main className="flex w-full flex-1 flex-col overflow-hidden">
           {children}
-        </main>
-      </div>
-    </div>
-  )
-}
+        </main> */}

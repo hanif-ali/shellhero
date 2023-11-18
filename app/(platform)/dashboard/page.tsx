@@ -18,18 +18,16 @@ export default async function DashboardPage() {
   }
 
   return (
-    <DashboardShell>
-      <DashboardHeader
-        heading="Dashboard"
-        text=""
-      ></DashboardHeader>
-      <div>
-        <EmptyPlaceholder>
-          <EmptyPlaceholder.Title></EmptyPlaceholder.Title>
-          <EmptyPlaceholder.Description>
-          </EmptyPlaceholder.Description>
-        </EmptyPlaceholder>
-      </div>
-    </DashboardShell>
+    <main className="flex w-full flex-1 flex-col overflow-hidden">
+      <DashboardShell>
+        <DashboardHeader heading="Dashboard" text=""></DashboardHeader>
+        <div>
+          <EmptyPlaceholder>
+            <EmptyPlaceholder.Title></EmptyPlaceholder.Title>
+            <EmptyPlaceholder.Description></EmptyPlaceholder.Description>
+          </EmptyPlaceholder>
+        </div>
+      </DashboardShell>
+    </main>
   )
 }
