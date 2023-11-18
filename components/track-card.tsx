@@ -44,7 +44,7 @@ export function TrackCard(props: Props) {
             Coming Soon
           </a>
         ) : (
-          <a className={cn(buttonVariants())} href={`/tracks/${track.slug}`}>
+          <a className={cn(buttonVariants())} href={`/tracks/${track.slug}/introduction`}>
             Get Started
           </a>
         )}

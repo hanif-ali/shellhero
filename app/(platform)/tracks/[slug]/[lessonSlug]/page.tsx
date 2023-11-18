@@ -3,18 +3,17 @@ import { allLessonFiles } from "contentlayer/generated"
 import { Mdx } from "@/components/mdx-components"
 import { notFound } from "next/navigation"
 
-export default function TrackPage({
+export default async function LessonPage({
   params,
 }: {
-  params: { slug: string }
+  params: { slug: string, lessonSlug: string }
 }) {
   const page = allLessonFiles.find(
-    (page) => page.slugAsParams === `${params.slug}/introduction`
+    (page) => page.slugAsParams === `${params.slug}/${params.lessonSlug}`
   )
   if (!page) {
     return notFound()
   }
-  console.log(page.body.code)
 
   return <Mdx code={page.body.code} />
 }

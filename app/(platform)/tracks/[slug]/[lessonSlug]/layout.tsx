@@ -3,11 +3,11 @@ import { Suspense } from "react"
 import { db } from "@/lib/db"
 import { LessonsSidebar } from "@/components/lessons-sidebar"
 
-import { LessonsNavLoading } from "./loading"
+import { LessonsNavLoading } from './loading'
 
 interface Props {
   children?: React.ReactNode
-  params: { slug: string }
+  params: { slug: string; lessonSlug: string }
 }
 
 export default function TracksLayout({ children, params }: Props) {
@@ -16,7 +16,7 @@ export default function TracksLayout({ children, params }: Props) {
       <aside className="hidden w-[200px] flex-col md:flex border-r px-4">
         <Suspense fallback={<LessonsNavLoading />}>
           {/* @ts-expect-error Server Component */}
-          <LessonsNav slug={params.slug} />
+          <LessonsNav slug={params.slug} lessonSlug={params.lessonSlug} />
         </Suspense>
       </aside>
       <main className="flex w-full flex-1 flex-col overflow-hidden">
@@ -26,10 +26,21 @@ export default function TracksLayout({ children, params }: Props) {
   )
 }
 
-async function LessonsNav({ slug }: { slug: string }) {
+async function LessonsNav({
+  slug,
+  lessonSlug,
+}: {
+  slug: string
+  lessonSlug: string
+}) {
   const lessons = await db.lesson.findMany({
     where: { track: { slug: slug } },
-    include: { track: { select: { slug: true } } },
   })
-  return <LessonsSidebar lessons={lessons} />
+  return (
+    <LessonsSidebar
+      trackSlug={slug}
+      lessons={lessons}
+      activeLessonSlug={lessonSlug}
+    />
+  )
 }
