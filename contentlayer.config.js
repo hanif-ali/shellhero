@@ -32,25 +32,17 @@ export const Page = defineDocumentType(() => ({
   computedFields,
 }))
 
-export const Lesson = defineDocumentType(() => ({
-  name: "Lesson",
-  filePathPattern: `lessons/**/*.mdx`,
+export const LessonFile = defineDocumentType(() => ({
+  name: "LessonFile",
+  filePathPattern: `tracks/**/*.mdx`,
   contentType: "mdx",
-  fields: {
-    title: {
-      type: "string",
-      required: true,
-    },
-    description: {
-      type: "string",
-    },
-  },
+  fields: {},
   computedFields,
 }))
 
 export default makeSource({
   contentDirPath: "./content",
-  documentTypes: [Page, Lesson],
+  documentTypes: [Page, LessonFile],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [

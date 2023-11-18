@@ -34,7 +34,7 @@ export default async function DashboardLayout({
           />
         </div>
       </header>
-      <div className="container">{children}</div>
+      <div className="container min-h-screen">{children}</div>
     </div>
   )
 }
